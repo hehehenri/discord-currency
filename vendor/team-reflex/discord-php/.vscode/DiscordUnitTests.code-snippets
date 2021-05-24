@@ -1,0 +1,14 @@
+{
+    "Unit Test": {
+        "scope": "php",
+        "prefix": "unit",
+        "body": [
+            "public function $1()",
+            "{",
+            "    return wait(function (Discord \\$discord, \\$resolve) {",
+            "        $0",
+            "    });",
+            "}"
+        ]
+    }
+}
