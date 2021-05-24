@@ -6,11 +6,11 @@ use Discord\Discord;
 
 //Configurando o Discord;
 $discord = new Discord([
-    'token' => 'ODQ1NzgwNDM1OTg0NDQ5NTk3.YKl8aQ.ZSB8_n0SUmg3sBeLvrn9IyUi_nY',
+    'token' => 'token',
 ]);
 
 //-Toda a config da api daqui
-$api_url = 'http://data.fixer.io/api/latest?access_key=9685b2f46fb15830a6db760e4ec51651&format=1';
+$api_url = 'apiurl';
 
 $json = file_get_contents($api_url);
 $data = json_decode($json);
