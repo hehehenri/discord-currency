@@ -50,21 +50,16 @@ function btcBrl(){
     echo PHP_EOL.PHP_EOL."-Requisição de BTC.".PHP_EOL.PHP_EOL;
     return $currency;
 }
-
-function ethBrl(){
-    global $currency, $exchange;
-    $currency = ($exchange->BRL)/($exchange->ETH);
-    $currency = round($currency, 2);
-    echo PHP_EOL.PHP_EOL."-Requisição de ETH.".PHP_EOL.PHP_EOL;
-    return $currency;
-}
-
 $discord->on('ready', function ($discord){
     echo "Bot is running!";
-
     $discord->on('message', function ($message, $discord){
         if ($message->content == "!moedas"){
-            $message->channel->sendEmbed($embed);
+            echo PHP_EOL.PHP_EOL."-Consulta.".PHP_EOL.PHP_EOL;
+            $message->channel->sendMessage("  **Moedas Suportadas:**"
+                .PHP_EOL."-Dolar: "."`!dolar`"
+                .PHP_EOL."-Euro: "."`!euro`"
+                .PHP_EOL."-Libra: "."`!libra`"
+                .PHP_EOL."-Bitcoin: ". "`!btc`");
         }
 
         //dolar
@@ -87,9 +82,6 @@ $discord->on('ready', function ($discord){
             $message->channel->sendMessage("**1** Bitcoin igual a".PHP_EOL."**".btcBrl()."** Real Brasileiro");
         }
 
-        if($message->content === "!eth"){
-            $message->channel->sendMessage("**1** Ether igual a".PHP_EOL."**".ethBrl()."** Real Brasileiro");
-        }
     });
 });
 
