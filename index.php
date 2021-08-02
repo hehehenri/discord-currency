@@ -6,11 +6,11 @@ use Discord\Discord;
 
 //Configurando o Discord;
 $discord = new Discord([
-    'token' => 'ODQ1NzgwNDM1OTg0NDQ5NTk3.YKl8aQ.B4qQmh6BLjOSKsyvnQxKIAdsD7g',
+    'token' => 'discord-token',
 ]);
 
 //-Toda a config da api daqui
-$api_url = 'http://data.fixer.io/api/latest?access_key=9685b2f46fb15830a6db760e4ec51651&format=1';
+$api_url = 'weather-api-url';
 
 $json = file_get_contents($api_url);
 $data = json_decode($json);
@@ -30,7 +30,7 @@ function usdBrl(){
 function eurBrl(){
     global $currency, $exchange;
     $currency = ($exchange->BRL)/($exchange->EUR);
-    $currency = round($currency, 2);
+    $currency = round($currency, 2);    
     echo PHP_EOL.PHP_EOL."-Requisição de euro.".PHP_EOL.PHP_EOL;
     return $currency;
 }
